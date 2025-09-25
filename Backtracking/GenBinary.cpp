@@ -12,7 +12,7 @@ void genString(int pos){
 	}
 	for(char i = '0'; i <= '1'; i++){
 		curString.push_back(i);
-		genString(pos + 1);     // Quay lui
+		genString(pos + 1);
 		curString.pop_back();
 	}
 }
