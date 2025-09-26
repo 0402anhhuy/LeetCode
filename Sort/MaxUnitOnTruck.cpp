@@ -1,25 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int compare(const vector<int> a, const vector<int> b){
-    if(a[1] == b[1]){
-        return a[0] > b[0];
-    }
+bool compare(const vector<int> a, const vector<int> b){
     return a[1] > b[1];
 }
 
 int maximumUnits(vector<vector<int>>& boxTypes, int truckSize){
     sort(boxTypes.begin(), boxTypes.end(), compare);
 
-    int n = boxTypes.size(), ans = 0;
-    for(int i = 0; i < n; i++){
-        truckSize -= boxTypes[i][0];
-        if(truckSize <= 0){
-            ans += (boxTypes[i][1] * abs(truckSize));
-            return ans;
-        }
+    int ans = 0;
+    for(auto box : boxTypes){
+        if(truckSize == 0) break;
 
-        ans += (boxTypes[i][1] * boxTypes[i][0]);
+        int take = min(truckSize, box[0]);
+        ans += (box[1] * take);
+        truckSize -= take;
     }
     return ans;
 }
