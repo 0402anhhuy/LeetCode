@@ -15,11 +15,6 @@ int fib(int n){
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
-    #ifndef ONLINE_JUDGE
-        freopen("D:/AnhHuy/Code/C++/input.inp", "r", stdin);
-        freopen("D:/AnhHuy/Code/C++/output.out", "w", stdout);
-    #endif
       
     int n; cin >> n;
     int ans = fib(n);
