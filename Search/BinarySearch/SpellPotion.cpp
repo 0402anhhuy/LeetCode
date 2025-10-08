@@ -31,7 +31,7 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
-int bs(vector<int> potions, ll spell, ll success){
+int bs(vector<int> &potions, ll spell, ll success){
     int low = 0, high = potions.size() - 1, idx = -1;
     while(low <= high){
         int mid = low + (high - low) / 2;
