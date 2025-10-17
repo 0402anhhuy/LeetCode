@@ -31,11 +31,26 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
+int minimumLength(string s){
+    map<char, int> charFreq;
+    for(char c : s){
+        charFreq[c]++;
+    }
+
+    int ans = 0;
+    for(auto &[c, f] : charFreq){
+        if(f & 1) ans += 1;
+        else ans += 2;
+    }
+    return ans;
+}
 
 
 int main(){
     FAST_IO;
 
-    
+    string s; cin >> s;
+    int ans = minimumLength(s);
+    cout << ans;
     return 0;
 }
