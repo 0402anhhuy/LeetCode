@@ -31,6 +31,25 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
+/*
+    LeetCode 2558. Take Gifts From the Richest Pile
+
+    Đề bài:
+        Cho mảng gifts[] biểu thị số quà trong từng đống và số nguyên k.
+        Mỗi giây, ta thực hiện:
+            - Chọn đống có nhiều quà nhất
+            - Giảm số quà trong đống đó xuống bằng floor(sqrt(số quà ban đầu))
+            - Lặp lại quá trình này k lần
+
+    Sau k giây, trả về tổng số quà còn lại trong tất cả các đống
+
+    Ví dụ:
+        gifts = [25,64,9,4,100], k = 4
+        Các bước: [25,64,9,4,100] → [25,64,9,4,10] → [25,8,9,4,10] → [5,8,9,4,10] → [5,8,9,4,3]
+        Tổng còn lại = 29
+*/
+
+
 long long pickGifts(vector<int>& gifts, int k){
     priority_queue<int> tempGift(gifts.begin(), gifts.end());
 
