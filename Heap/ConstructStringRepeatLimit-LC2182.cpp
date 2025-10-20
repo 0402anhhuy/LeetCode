@@ -38,7 +38,7 @@ const int MOD = 1e9 + 7;
         Cho chuỗi s và số nguyên repeatLimit
         Tạo ra một chuỗi mới (repeatLimitedString) từ các ký tự của s sao cho:
             - Không ký tự nào xuất hiện quá repeatLimit lần liên tiếp
-            - Chuỗi tạo ra phải là **lớn nhất theo thứ tự từ điển (lexicographically largest)** có thể
+            - Chuỗi tạo ra phải là lớn nhất theo thứ tự từ điển (lexicographically largest) có thể
             (Không bắt buộc phải dùng hết các ký tự trong s)
 
     Ví dụ:
@@ -46,10 +46,47 @@ const int MOD = 1e9 + 7;
         s = "aababab", repeatLimit = 2  →  Output: "bbabaa"
 */
 
+string repeatLimitedString(string s, int repeatLimit){
+    vector<int> freq(26, 0);
+    for(char c : s){
+        freq[c - 'a']++;
+    }
+
+    priority_queue<int> pq;
+    for(int i = 0; i < 26; i++){
+        if(freq[i] > 0){
+            pq.push(i);
+        }
+    }
+
+    string ans = "";
+    while(!pq.empty()){
+        int curr = pq.top(); pq.pop();
+
+        int use = min(freq[curr], repeatLimit);
+        ans.append(use, 'a' + curr);
+        freq[curr] -= use;
+
+        if(freq[curr] > 0){
+            if(pq.empty()) break;
+            int next = pq.top(); pq.pop();
+            ans.push_back('a' + next);
+            freq[next]--;
+            
+            if(freq[next] > 0) pq.push(next);
+            pq.push(curr);
+        }
+    }
+    return ans;
+}
 
 int main(){
     FAST_IO;
 
-    
+    string s; cin >> s;
+    int repeatLimit; cin >> repeatLimit;
+
+    string ans = repeatLimitedString(s, repeatLimit);
+    cout << ans;
     return 0;
 }
