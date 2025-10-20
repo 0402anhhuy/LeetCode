@@ -32,27 +32,23 @@ const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
 string customSortString(string order, string s){
-    set<char> orderSet(order.begin(), order.end());
-    map<char, int> sMap;
+    vector<int> freq(26, 0);
     for(char c : s){
-        sMap[c]++;
+        freq[c - 'a']++;
     }
 
     string ans = "";
     for(char c : order){
-        if(sMap[c]){
-            for(int i = 0; i < sMap[c]; i++){
-                ans += c;
-            }
-        }
-    }
-
-    for(char c : s){
-        if(orderSet.count(c) == 0){
+        while(freq[c - 'a']-- > 0){
             ans += c;
         }
     }
 
+    for(int i = 0; i < 26; i++){
+        while(freq[i]-- > 0){
+            ans += i + 'a';
+        }
+    }
     return ans;
 }
 
