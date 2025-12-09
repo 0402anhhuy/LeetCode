@@ -31,6 +31,26 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
+/*
+    LeetCode 1961. Check If String Is a Prefix of Array
+
+    Đề bài:
+    Cho một chuỗi s và một mảng các chuỗi words
+
+    Định nghĩa Chuỗi tiền tố (Prefix String):
+    → Chuỗi s được gọi là chuỗi tiền tố của words nếu s có thể được tạo thành bằng cách nối (concatenating) k chuỗi đầu tiên trong mảng words
+
+    Yêu cầu:
+    → Xác định xem chuỗi s có phải là một chuỗi tiền tố của words hay không
+    → Trả về true nếu phải, và false nếu không
+
+    Ví dụ:
+        Input: s = "iloveleetcode", words = ["i", "love", "leetcode", "apples"]
+        → Nối 3 chuỗi đầu tiên: "i" + "love" + "leetcode" = "iloveleetcode"
+        → Kết quả khớp với s
+        → Output: true
+*/
+
 bool isPrefixString(string s, vector<string>& words){
     string tmp = "";
     for(int i = 0; i < words.size(); i++){
