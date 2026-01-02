@@ -58,20 +58,21 @@ const int MOD = 1e9 + 7;
 */
 
 vector<int> plusOne(vector<int>& digits){
-    long long num = 0;
-    for(int digit : digits){
-        num = num * 10 + digit;
-    }
-
-    num++;
-    
     vector<int> ans;
-    while(num != 0){
-        ans.push_back(num % 10);
-        num /= 10;
-    }
+    int n = digits.size(), carry = 0, sum = 0;
 
+    for(int i = n - 1; i >= 0; i--){
+        if(i == n - 1){
+            sum = digits[i] + 1;
+        }
+        else sum = digits[i] + carry;
+
+        ans.push_back(sum % 10);
+        carry = sum / 10;
+    }
+    if(carry != 0) ans.push_back(carry);
     reverse(ans.begin(), ans.end());
+
     return ans;
 }
 
