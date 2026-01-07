@@ -31,6 +31,27 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
+/*
+    LeetCode 1161. Maximum Level Sum of a Binary Tree
+
+    Đề bài:
+    Cho root của một cây nhị phân (binary tree)
+    → Tầng (level) của root là 1, tầng của các con của nó là 2, và cứ tiếp tục như vậy
+
+    Yêu cầu:
+    → Tính tổng giá trị của tất cả các node ở mỗi tầng
+    → Tìm tầng có tổng giá trị lớn nhất
+    → Nếu có nhiều tầng có cùng tổng giá trị lớn nhất, hãy trả về số thứ tự của tầng nhỏ nhất (tầng gần root nhất)
+
+    Ví dụ:
+        Input: root = [1, 7, 0, 7, -8, null, null]
+        → Tầng 1: Tổng = 1
+        → Tầng 2: Tổng = 7 + 0 = 7
+        → Tầng 3: Tổng = 7 + (-8) = -1
+        → Tổng lớn nhất là 7, tương ứng với tầng 2
+        → Output: 2
+*/
+
 struct TreeNode{
     int val;
     TreeNode *left;
