@@ -31,6 +31,30 @@ const ll  LINF = 4e18;
 const ld  EPS = 1e-9;
 const int MOD = 1e9 + 7;
 
+/*
+    LeetCode 537. Complex Number Multiplication
+
+    Đề bài:
+    Số phức được biểu diễn dưới dạng chuỗi "real+imaginaryi", trong đó:
+    → real: Phần thực (số nguyên).
+    → imaginary: Phần ảo (số nguyên).
+    → Đơn vị ảo i có tính chất: i^2 = -1
+
+    Yêu cầu:
+    → Cho hai số phức num1 và num2 dưới dạng chuỗi.
+    → Tính tích của chúng và trả về kết quả cũng dưới dạng chuỗi định dạng "real+imaginaryi"
+
+    Công thức nhân số phức:
+    (a + bi) * (c + di) = (a * c - b * d) + (a * d + b * c)i
+
+    Ví dụ:
+        Input: num1 = "1+1i", num2 = "1+1i"
+        → a=1, b=1, c=1, d=1
+        → Phần thực: (1*1 - 1*1) = 0
+        → Phần ảo: (1*1 + 1*1) = 2
+        → Output: "0+2i"
+*/
+
 string complexNumberMultiply(string num1, string num2){
     string real1 = "", imaginary1 = "", real2 = "", imaginary2 = "";
     for(int i = 0; i < num1.length(); i++){
