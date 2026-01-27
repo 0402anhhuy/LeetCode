@@ -55,7 +55,7 @@ const int MOD = 1e9 + 7;
 */
 
 int lowerBound(vector<int> nums, int target){
-    int left = 0, right = nums.size();
+    int left = 0, right = nums.size() - 1;
 
     while(left < right){
         int mid = (left + right) / 2;
